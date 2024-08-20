@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dish Discover London</title>
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="content">
+      <div class="logo"><a href="#">Dish Discover London</a></div>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li class="dropdown">
+          <a href="#"><i class="fas fa-map-marker-alt"></i> Location</a>
+          <ul class="dropdown-menu">
+            <li><a href="cl.html">Central London</a></li>
+            <li><a href="nl.html">North London</a></li>
+            <li><a href="el.html">East London</a></li>
+            <li><a href="sl.html">South London</a></li>
+            <li><a href="wl.html">West London</a></li>
+          </ul>
+        </li>
+        <li><a href="calendar_reminders.html"><i class="fas fa-calendar-alt"></i> Calendar</a></li>
+        <li><a href="healthy eats.html"><i class="fas fa-utensils"></i> Healthy Eats</a></li>
+        <li><a href="feedback.html"><i class="fas fa-microphone"></i> Your voice</a></li>
+        <li><a href="login_signup.html"><i class="fas fa-user"></i> Login/Sign up</a></li>
+      </ul>
+      <div class="icon menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <div class="ldnhome"></div>
+  <div class="about">
+  <div class="content">
+      <div class="title">About</div>
+      <p> Welcome to Dish Discover London! </p>
+      <p> Need help using our page, click <a href="help.html">here</a> </p>
+      <p> At Dish Discover London, we are passionate about the vibrant culinary scene of one of the world's most diverse cities. Our mission is simple: to help you discover the best halal restaurants in London. </p>
+      <p> For tourists and hobbyists alike, exploring London's rich culinary tapestry is an adventure waiting to happen. At Dish Discover London, we're dedicated to helping you uncover the finest halal dining experiences across Central, North, East, South, and West London. We've got you covered!</p> 
+      <p> London is not only renowned for its iconic landmarks and cultural attractions but also for its diverse and vibrant food scene. From savory street food stalls to elegant fine dining establishments, the city offers a wide variety of flavors that cater to every palate. You don't have to worry if they are halal because we have done that for you!</p>
+      <p> Whether you're strolling through the historic streets of Central London, exploring the neighborhoods of North London, soaking in the riverside ambiance of East London, immersing yourself in the culture of of South London, or venturing into the leafy scenes of West London, there's a halal gem waiting to be discovered around every corner BY YOU.</p>
+      <p> </p>
+      <div class="container">
+        <div class="images">
+          <img class="food-img" src="images/ldn1.jpg" alt="food" width="30%"> 
+          <img class="food-img" src="images/ldn2.jpg" alt="food" width="30%">
+          <img class="food-img" src="images/ldn3.jpg" alt="food" width="30%">
+          
+        </div>
+      
+        <div class="signup-form">
+          <h1>Sign up for our newsletter now</h1>
+          <span>Stay notified for upcoming halal gems</span>
+          <hr>
+          <form action="signup.html">
+            <input type="email" name="email_address" placeholder="Email Address">
+            <button type="submit">SIGN UP</button>
+          </form>
+        </div>
+      </div>
+  </div>
+  <script>
+    const body = document.querySelector("body");
+    const cancelBtn = document.querySelector(".cancel-btn");
+    const navbar = document.querySelector(".navbar");
+    const menu = document.querySelector(".menu-list");
+    const menuBtn = document.querySelector(".menu-btn");
+    menuBtn.onclick = ()=>{
+      menu.classList.add("active");
+      menuBtn.classList.add("hide");
+      cancelBtn.classList.add("show");
+      body.classList.add("disabledScroll");
+    }
+    cancelBtn.onclick = ()=>{
+      menu.classList.remove("active");
+      menuBtn.classList.remove("hide");
+      cancelBtn.classList.remove("show");
+      body.classList.remove("disabledScroll");
+    }
+    window.onscroll = ()=>{
+      this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+    }
+    
+    const images = document.querySelectorAll('.food-img');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+    images.forEach(image => {
+      observer.observe(image);
+    });
+  </script>
+
+</body>
+</html>

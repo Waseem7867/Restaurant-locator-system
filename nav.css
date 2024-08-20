@@ -1,0 +1,753 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap");
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.content{
+  max-width: 1600px;
+  margin: auto;
+  padding: 0px 120px;
+}
+.navbar{
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  padding: 25px 0;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar .content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+.navbar.sticky{
+  padding: 25px 0;
+  background: #1b1b1b;
+  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
+}
+.navbar .logo a{
+  color: #fff;
+  font-size: 26px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 60px;
+  font-family: 'Dancing Script', cursive;
+}
+.navbar .menu-list{
+  display: inline-flex;
+}
+.menu-list li{
+  list-style: none;
+}
+.menu-list li a{
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 300;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  margin-right: 20px;
+  margin-left: 10px;
+  
+}
+.menu-list li a:hover{
+  color: #000000;
+  background-color: #58e5ec;
+  padding: 12px 5px;
+}
+
+.ldnhome{
+  height: 100vh;
+  background: url("images/ldnhome.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+}
+
+
+.ldncw2{
+  height: 100vh;
+  background: url("images/ldncw2.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+}
+
+.ldnhealthyeats{
+  height: 100vh;
+  background: url("images/ldnhealthyeats.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+}
+
+.ldnmore{
+  height: 100vh;
+  background: url("images/ldnmore.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+}
+
+
+.ldnyourvoice{
+  height: 100vh;
+  background: url("images/ldnyourvoice.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+}
+
+.ldnhelp{
+  height: 100vh;
+  background: url("images/ldnhelp.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+}
+
+.ldncalendar{
+  height: 100vh;
+  background: url("images/ldncalendar.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+}
+
+.about{
+  padding: 60px 0;
+  padding-left: 70px;
+  padding-right: 70px;
+  
+}
+.about .title{
+  font-size: 65px;
+  font-weight: 500;
+  font-family: 'Dancing Script', cursive;
+}
+.about p{
+  padding-top: 20px;
+  text-align: justify;
+  font-family: 'Poppins', sans-serif;
+}
+.icon{
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}
+.icon.cancel-btn{
+  position: absolute;
+  right: 30px;
+  top: 20px;
+}
+.navbar.sticky .icon.cancel-btn{
+  top: 10px;
+}
+
+@media (max-width: 868px) {
+  body.disabledScroll{
+    overflow: hidden;
+  }
+  .icon{
+    display: block;
+    height: 50p.1x;
+    width: 50.1px;
+    text-align: center;
+    line-height: 50.1px;
+    border-radius: 50%;
+    z-index: 9;
+  }
+  .icon.cancel-btn{
+    display: none;
+  }
+  .icon.cancel-btn.show{
+    display: block;
+  }
+  .icon.hide{
+    display: none;
+  }
+  .navbar .menu-list{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: #222;
+    display: block;
+    padding: 40px 0;
+    text-align: center;
+    clip-path: circle(25px at calc(100% - 55px) calc(0% + 50px));
+    transition: all 0.3s ease;
+  }
+  .navbar.sticky .menu-list{
+    clip-path: circle(25px at calc(100% - 55px) calc(0% + 35px));
+  }
+  .navbar .menu-list.active{
+    clip-path: circle(75%);
+  }
+  .navbar .menu-list li{
+    margin-top: 45px;
+
+  }
+  .navbar .menu-list li a{
+    font-size: 13px;
+  }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 76%;
+}
+
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li a {
+    color: black;
+    padding: 35px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #a9e9b8;
+
+}
+.food-img {
+  height: 300px; 
+  object-fit: cover; 
+  width: 25%;
+  margin: 5px;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  box-sizing: border-box;
+
+  
+}
+
+.signup-form {
+  border: 1px solid #999; 
+  border-radius: 5px; 
+  padding-left: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-right: 20px;
+}
+.signup-form h1 {
+  font-size: 36px;
+  color: #208bd3;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+.signup-form span {
+  color: #999;
+  font-size: 16px;
+  text-transform: capitalize;
+  padding-left: 60px;
+}
+.signup-form hr {
+  width: 70px;
+  color: #999;
+  margin: 25px auto;
+}
+.signup-form input {
+  width: 100%;
+  font-size: 16px;
+  box-sizing: border-box;
+  padding: 20px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+.signup-form input:focus-visible {
+  border: 1px solid #2071d3;
+  outline: #207fd3;
+}
+.signup-form button {
+  width: 100%;
+  padding: 15px 20px;
+  border: 0;
+  border-radius: 5px;
+  background: #209ad3;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  transition: .3s;
+}
+.signup-form button:hover {
+  background: #1d3fa5;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.images {
+  flex: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.signup-form {
+  flex: 1;
+}
+
+.food-img {
+  margin-right: 10px;
+
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.food-img.visible {
+  animation-name: fadeIn;
+  animation-duration: 3s; 
+}
+
+.food-img.visible:nth-child(n) {
+  animation-delay: calc(3s * n); 
+}
+
+h1 {
+  font-weight: 300;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: #000000;
+  font-family: Poppins, sans-serif;
+}
+h3 {
+  font-weight: 600;
+  font-family: Poppins, sans-serif;
+}
+.calendar {
+  margin: auto;
+  width: 97%;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-top: 0;
+}
+.calendar header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: Poppins, sans-serif;
+}
+.calendar nav {
+  display: flex;
+  align-items: center;
+}
+.calendar ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.calendar ul li {
+  width: calc(100% / 7);
+  margin-top: 25px;
+  position: relative;
+  z-index: 2;
+}
+#prev,
+#next {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+#prev::before,
+#next::before {
+  content: "";
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-style: solid;
+  border-width: 0.25em 0.25em 0 0;
+  border-color: #ccc;
+}
+#next::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+#prev::before {
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+#prev:hover::before,
+#next:hover::before {
+  border-color: #000;
+}
+.days {
+  font-weight: 600;
+}
+.dates li.today {
+  color: #fff;
+}
+.dates li.today::before {
+  content: "";
+  width: 2.1rem;
+  height: 2.1rem;
+  position: absolute;
+  top: 49%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+  background: #000;
+  border-radius: 50%;
+  z-index: -1;
+}
+.dates li.inactive {
+  color: #ccc;
+}
+
+.calendar li a {
+  font-family: 'Poppins', sans-serif; 
+  font-size: 18px; 
+  font-weight: 300;
+  text-decoration: none;
+  color: inherit; 
+  transition: color 0.25s ease;
+
+}
+
+.calendar li a:hover {
+  color: #000000; 
+  background-color: #b5b5b5; 
+  padding: 10px 5px; 
+  border-radius: 50%; 
+}
+
+.calendar-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.event-form {
+  width: 30%; 
+  margin-right: 2rem; 
+  padding: 1rem;
+  background-color: #fff; 
+  border-radius: 5px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  margin-bottom: 0;
+}
+
+.event-form h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.event-form label,
+.event-form input {
+  display: block;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.event-form input[type="text"],
+.event-form input[type="date"] {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.event-form input[type="submit"] {
+  padding: 0.5rem 1rem;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.event-form input[type="submit"]:hover {
+  background-color: #b5b5b5;
+}
+
+.box{
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  width: 400px;
+  background-color: #fff;
+  padding: 15px 30px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 50px -20px rgb(0 0 0);
+}
+.box .button_box{
+  width: 100%;
+  border-radius: 0px;
+  margin: 20px 0px;
+  display: flex;
+  position: relative;
+}
+.box .button_box .signup_button,
+.box .button_box .login_button{
+  width: 50%;
+  padding: 10px 20px;
+  font-family: Poppins , sans-serif;
+  font-size: 25px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.6s;
+}
+.box .button_box .slider_button{
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  border-radius: 0px;
+  background: linear-gradient(45deg , #062062  , #a4e2ff);
+  z-index: -1;
+  left: 0px;
+  transition: all 0.4s cubic-bezier(0.150 , -0.100 , 0.700 , -0.500);
+}
+.box .form_box{
+  width: 100%;
+  height: 450px;
+  position: relative;
+  overflow: hidden;
+}
+.box .form_slider{
+  position: absolute;
+  width: 200%;
+  display: flex;
+  left: 0%;
+  transition: all 0.4s cubic-bezier(0.150 , -0.100 , 0.700 , -0.500);
+  
+}
+.box .form_box form{
+  width: 100%;
+  margin: 0px 10px;
+}
+.box .form_box .login_form{
+  padding-top: 30px;
+}
+.form_box form .input_field_box{
+  height: 250px;
+  overflow-y: auto; 
+}
+.form_box form .input_field_box::-webkit-scrollbar{
+  display: none;
+}
+.form_box form .input_box{
+  width: 100%;
+  margin: 30px 0px;
+  text-align: center;
+  position: relative;
+}
+.form_box form .input_box input{
+  width: 95%;
+  font-size: 25px;
+  padding: 8px 0px;
+  border-width: 0px 0px 2px 0px;
+  outline: none;
+}
+.form_box form .input_box label{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-size: 15px;
+  pointer-events: none;
+  color: #6d6d6d;
+  transition: 0.3s;
+}
+.form_box form .input_box input:focus,
+.form_box form .input_box input:valid{
+  border-color: rgb(56, 56, 180);
+}
+.form_box form .input_box input:focus + label,
+.form_box form .input_box input:valid + label{
+  top: -16px;
+  font-size: 18px;
+  font-family: Poppins , sans-serif;
+  color: rgb(104, 144, 226);
+}
+.form_box form .link,
+.form_box form .contact_link{
+  font-size: 16px;
+  text-align: center;
+  margin: 20px 0px;
+}
+.form_box form .link a,
+.form_box form .contact_link a{
+  color: rgb(19, 27, 110);
+  font-family: Poppins , sans-serif;
+  font-weight: bold;
+}
+.form_box form .password_link{
+  text-align: right;
+  margin: 20px 0px;
+  font-size: 20px;
+}
+.form_box form .password_link a{
+  font-family: Poppins , sans-serif;
+  color: rgb(27, 39, 101);
+}
+.form_box form button{
+  width: 100%;
+  padding: 10px 25px;
+  font-family: Poppins , sans-serif;
+  font-size: 25px;
+  border: none;
+  background: linear-gradient(45deg , #062062 , #a4e2ff);
+  color: rgb(255, 255, 255);
+  border-radius: 0px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.form_box form button:active{
+  transform: scale3d(0.9 , 0.9 , 0.9);
+}
+
+.wrapper {
+  border: 3px solid #000;
+  font-size: 40px;
+  font-family: Poppins , sans-serif;
+	padding: 2rem;
+	max-width: 574px;
+	width: 100%;
+	border-radius:0%;
+	text-align: center;
+}
+.wrapper h3 {
+	font-size: 1.5rem;
+  font-family: Poppins , sans-serif;
+  border: #000;
+	font-weight: 600;
+	margin-bottom: 2rem;
+}
+.rating {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-gap: .5rem;
+	font-size: 2rem;
+	margin-bottom: 2rem;
+}
+.rating .star {
+	cursor: pointer;
+  color: goldenrod;
+}
+.rating .star.active {
+	opacity: 0;
+	animation: animate .5s calc(var(--i) * .1s) ease-in-out forwards;
+}
+
+@keyframes animate {
+	0% {
+		opacity: 0;
+		transform: scale(1);
+	}
+	50% {
+		opacity: 1;
+		transform: scale(1.2);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+
+.rating .star:hover {
+	transform: scale(1.1);
+}
+textarea {
+	width: 100%;
+	padding: 1.1rem;
+	border-radius: .6rem;
+	border: rgb(0, 0, 0);
+	margin-bottom: .6rem;
+}
+.btn-group {
+	display: flex;
+	grid-gap: .6rem;
+	align-items: center;
+}
+.btn-group .btn.submit {
+	background: turquoise;
+	color: black;
+}
+.btn-group .btn.reset {
+	background: turquoise;
+	color: black;
+}
+.btn-group .btn {
+	padding: .75rem 1rem;
+	border-radius: .5rem;
+  font-family: Poppins , sans-serif;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	font-size: .875rem;
+	font-weight: 400;
+}
+
+.btn-group .btn.submit:hover {
+	background: rgb(178, 113, 208);
+}
+.btn-group .btn.reset {
+	background: turquoise;
+	color: black;
+}
+.btn-group .btn.reset:hover {
+	background:rgb(178, 113, 208);
+}

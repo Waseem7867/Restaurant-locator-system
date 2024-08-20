@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dish Discover London</title>
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="content">
+      <div class="logo"><a href="#">Dish Discover London</a></div>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li class="dropdown">
+          <a href="#"><i class="fas fa-map-marker-alt"></i> Location</a>
+          <ul class="dropdown-menu">
+            <li><a href="cl.html">Central London</a></li>
+            <li><a href="nl.html">North London</a></li>
+            <li><a href="el.html">East London</a></li>
+            <li><a href="sl.html">South London</a></li>
+            <li><a href="wl.html">West London</a></li>
+          </ul>
+        </li>
+        <li><a href="calendar_reminders.html"><i class="fas fa-calendar-alt"></i> Calendar</a></li>
+        <li><a href="healthy eats.html"><i class="fas fa-utensils"></i> Healthy Eats</a></li>
+        <li><a href="feedback.html"><i class="fas fa-microphone"></i> Your voice</a></li>
+        <li><a href="login_signup.html"><i class="fas fa-user"></i> Login/Sign up</a></li>
+      </ul>
+      <div class="icon menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <div class="ldnyourvoice"></div>
+  <div class="about">
+  <div class="content">
+      <div class="title">Your Voice</div>
+      <p>At Dish Discover London, we encourage our users to submit feedback to ensure we keep you satisfied with our platform.<p>
+      <p>We value your dining experience and want to make sure you have the best time exploring London's halal food scene. Your feedback will help us improve our services and provide you with the best recommendations.</p>
+      <p> Whether you have suggestions for new features, improvements, or simply want to share your thoughts, we're all ears! Your feedback is essential to us, and we appreciate your time and effort in helping us grow.</p>
+      <p></p>
+      <p></p>
+      <p></p>
+	<div class="wrapper">
+		<h3>Leave feedback for our suggestions here</h3>
+		<form action="#">
+			<div class="rating">
+				<input type="number" name="rating" hidden>
+				<i class='bx bx-star star' style="--i: 0;"></i>
+				<i class='bx bx-star star' style="--i: 1;"></i>
+				<i class='bx bx-star star' style="--i: 2;"></i>
+				<i class='bx bx-star star' style="--i: 3;"></i>
+				<i class='bx bx-star star' style="--i: 4;"></i>
+			</div>
+			<textarea name="opinion" cols="30" rows="5" placeholder="Leave feedback here..." style="border: 2px solid #000; border-radius: 10px;"></textarea>
+			<div class="btn-group">
+				<button type="submit" class="btn submit">Submit</button>
+				<button class="btn reset">Reset</button>
+			</div>
+		</form>
+	</div>
+      </div>
+   
+  </div>
+
+  <script>
+    const body = document.querySelector("body");
+    const cancelBtn = document.querySelector(".cancel-btn");
+    const navbar = document.querySelector(".navbar");
+    const menu = document.querySelector(".menu-list");
+    const menuBtn = document.querySelector(".menu-btn");
+    menuBtn.onclick = ()=>{
+      menu.classList.add("active");
+      menuBtn.classList.add("hide");
+      cancelBtn.classList.add("show");
+      body.classList.add("disabledScroll");
+    }
+    cancelBtn.onclick = ()=>{
+      menu.classList.remove("active");
+      menuBtn.classList.remove("hide");
+      cancelBtn.classList.remove("show");
+      body.classList.remove("disabledScroll");
+    }
+    window.onscroll = ()=>{
+      this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+    }
+
+    document.querySelectorAll('.heart-button').forEach((button, index) => {
+      button.addEventListener('click', function() {
+        if (button.style.color === 'red') {
+          button.style.color = 'black';
+          localStorage.setItem('heartColor' + index, 'black');
+        } else {
+          button.style.color = 'red';
+          localStorage.setItem('heartColor' + index, 'red');
+        }
+      });
+    });
+    
+    window.onload = function() {
+      document.querySelectorAll('.heart-button').forEach((button, index) => {
+        var storedHeartColor = localStorage.getItem('heartColor' + index);
+        if (storedHeartColor) {
+          button.style.color = storedHeartColor;
+        }
+      });
+    };
+
+    const allStar = document.querySelectorAll('.rating .star')
+    const ratingValue = document.querySelector('.rating input')
+    
+    allStar.forEach((item, idx)=> {
+      item.addEventListener('click', function () {
+        let click = 0
+        ratingValue.value = idx + 1
+    
+        allStar.forEach(i=> {
+          i.classList.replace('bxs-star', 'bx-star')
+          i.classList.remove('active')
+        })
+        for(let i=0; i<allStar.length; i++) {
+          if(i <= idx) {
+            allStar[i].classList.replace('bx-star', 'bxs-star')
+            allStar[i].classList.add('active')
+          } else {
+            allStar[i].style.setProperty('--i', click)
+            click++
+          }
+        }
+      })
+    })
+
+ </script>
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dish Discover London</title>
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="content">
+      <div class="logo"><a href="#">Dish Discover London</a></div>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li class="dropdown">
+          <a href="#"><i class="fas fa-map-marker-alt"></i> Location</a>
+          <ul class="dropdown-menu">
+            <li><a href="cl.html">Central London</a></li>
+            <li><a href="nl.html">North London</a></li>
+            <li><a href="el.html">East London</a></li>
+            <li><a href="sl.html">South London</a></li>
+            <li><a href="wl.html">West London</a></li>
+          </ul>
+        </li>
+        <li><a href="calendar_reminders.html"><i class="fas fa-calendar-alt"></i> Calendar</a></li>
+        <li><a href="healthy eats.html"><i class="fas fa-utensils"></i> Healthy Eats</a></li>
+        <li><a href="feedback.html"><i class="fas fa-microphone"></i> Your voice</a></li>
+        <li><a href="login_signup.html"><i class="fas fa-user"></i> Login/Sign up</a></li>
+      </ul>
+      <div class="icon menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <div class="ldnhealthyeats"></div>
+  <div class="about">
+ <div class="content">
+      <div class="title">Healthy Eats</div>
+      <p>Want to still reach your health goals? Well try our new feature with just a few bits of information! </p>
+      <p>Using your health goals and BMI, we will recommend you food spots and specific meals that would be right for you.</p>
+      <p>Simply just add your <strong>health goal e.g. lose weight, maintain weight, gain weight, build muscle</strong> and your biometric information listed below.</p>
+      <p></p>
+      <p></p>
+  </div>
+
+  <div class="container">
+    
+
+    <form class="calculator">
+      <h2>Click on your BMI range on the scale for your suggestions once you submit your details</h2>
+
+      <div>
+        <label for="goal">Health goal</label>
+        <input type="string" id="goal">
+      </div>
+
+      <div>
+        <label for="gender">Gender</label>
+        <input type="string" id="gender">
+      </div>
+
+      <div>
+        <label for="age">Age (yrs)</label>
+        <input type="number" id="age" min="0" step="1" value="0" />
+      </div>
+
+      <div>
+        <label for="weight">Weight (kg)</label>
+        <input type="number" id="weight" min="0" step="1" value="0" />
+      </div>
+
+      <div>
+        <label for="height">Height (cm)</label>
+        <input type="number" id="height" min="0" step="1" value="0" />
+      </div>
+
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+
+    <section class="output">
+      <h3>Your BMI is</h3>
+      <p id="bmi">0</p>
+    </section>
+
+    <section class="bmi-scale">
+      <div style="--color: var(--underweight)">
+        <h4>Underweight</h4>
+        <p class="bmi-range"><a href="underweight.html">&lt; 18.5</a></p>
+      </div>
+      
+      <div style="--color: var(--normal)">
+        <h4>Normal</h4>
+        <p class="bmi-range"><a href="normal.html">18.5 – 25</a></p>
+      </div>
+      
+      <div style="--color: var(--overweight)">
+        <h4>Overweight</h4>
+        <p class="bmi-range"><a href="overweight.html">25 – 30</a></p>
+      </div>
+      
+      <div style="--color: var(--obese)">
+        <h4>Obese</h4>
+        <p class="bmi-range"><a href="obese.html">≥ 30</a></p>
+      </div>
+</section>
+  </div>
+
+  <style>
+    :root {
+      --underweight: orange;
+      --normal: green;
+      --overweight: lightcoral;
+      --obese: red;
+    }
+    
+    .container {
+      width: 90%;
+      font-family: Poppins , sans-serif;
+      max-width: 420px;
+      background: #fff;
+      padding: 1rem;
+      border-radius: 0px;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.25);
+      display: grid;
+      gap: 1rem;
+      margin: auto;
+      height: 100%;
+      
+    }
+
+    .calculator {
+      display: flex;
+      gap: 1rem;
+      flex-direction: column;
+      height: 100%;
+      
+    }
+    
+    .calculator div {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .calculator label {
+      font-family: Poppins , sans-serif;
+      font-weight: 500;
+      flex: 0 1 120px;
+    }
+    
+    .calculator input {
+      font-family: Poppins , sans-serif;
+      flex: 1;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      outline-color: #555;
+      font-size: 1.25rem;
+      text-align: center;
+    }
+    
+    .calculator button {
+      margin-left: 100px;
+      width: 50%;
+      font-family: Poppins , sans-serif;
+      position: relative;
+      overflow: hidden;
+      border-radius: 0px;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      background: #ae7ad6;
+      color: #000000;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      
+    }
+    @keyframes hoverEffect {
+      0% {
+        background-position: 0%;
+      }
+      100% {
+        background-position: 100%;
+      }
+    }
+    
+    .calculator button:hover::before {
+      left: 100%;
+    }
+    
+    .calculator button:hover {
+      font-weight: bold; 
+    }
+    
+    .calculator button:hover {
+      background-position: 0%;
+      font-weight: bold; 
+      font-family: Poppins , sans-serif;
+      filter: brightness(170%);
+    }
+    
+    .output {
+      text-align: center;
+    }
+    
+    .output #bmi {
+      font-family: Poppins , sans-serif;
+      font-size: 4rem;
+    }
+    
+    .bmi-scale {
+      display: flex;
+    }
+    
+    .bmi-scale div {
+      flex: 1;
+      font-family: Poppins , sans-serif;
+      text-align: center;
+      text-transform: uppercase;
+      border-top: 5px solid var(--color);
+      padding: 9.5px;
+    }
+    
+    .bmi-scale h4 {
+      font-family: Poppins , sans-serif, ;
+      font-size: 0.75rem;
+      color: slategray;
+    }
+
+    .bmi-range a {
+      text-decoration: none;
+      color: var(--color);
+  }
+  
+  .bmi-range a:hover {
+      font-weight: bold;
+  }
+    
+    .underweight {
+      color: var(--underweight);
+      
+    }
+    
+    .healthy {
+      color: var(--normal);
+    }
+    
+    .overweight {
+      color: var(--overweight);
+    }
+    
+    .obese {
+      color: var(--obese);
+    }
+
+    
+  </style>
+
+  <script>
+    const body = document.querySelector("body");
+    const cancelBtn = document.querySelector(".cancel-btn");
+    const navbar = document.querySelector(".navbar");
+    const menu = document.querySelector(".menu-list");
+    const menuBtn = document.querySelector(".menu-btn");
+    menuBtn.onclick = ()=>{
+      menu.classList.add("active");
+      menuBtn.classList.add("hide");
+      cancelBtn.classList.add("show");
+      body.classList.add("disabledScroll");
+    }
+    cancelBtn.onclick = ()=>{
+      menu.classList.remove("active");
+      menuBtn.classList.remove("hide");
+      cancelBtn.classList.remove("show");
+      body.classList.remove("disabledScroll");
+    }
+    window.onscroll = ()=>{
+      this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+    }
+    const bmiText = document.getElementById("bmi");
+    const descText = document.getElementById("desc");
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", onFormSubmit);
+    form.addEventListener("reset", onFormReset);
+
+    function onFormReset() {
+      bmiText.textContent = 0;
+      bmiText.className = "";
+      descText.textContent = "N/A";
+    }
+
+    function onFormSubmit(e) {
+      e.preventDefault();
+
+      const weight = parseFloat(form.weight.value);
+      const height = parseFloat(form.height.value);
+
+      if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+        alert("Please enter all boxes with valid information. Thank you.");
+        return;
+      }
+
+      const heightInMeters = height / 100; 
+      const bmi = weight / Math.pow(heightInMeters, 2);
+      const desc = contextBMI(bmi);
+
+      bmiText.textContent = bmi.toFixed(2);
+      bmiText.className = desc;
+      descText.innerHTML = `You are <strong>${desc}</strong>`;
+    }
+
+    function contextBMI(bmi) {
+      if (bmi < 18.5) {
+        return "underweight";
+      } else if (bmi < 25) {
+        return "healthy";
+      } else if (bmi < 30) {
+        return "overweight";
+      } else {
+        return "obese";
+      }
+    }
+  </script>
+</body>
+</html>

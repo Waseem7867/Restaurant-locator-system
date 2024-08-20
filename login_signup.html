@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dish Discover London</title>
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="content">
+      <div class="logo"><a href="#">Dish Discover London</a></div>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li class="dropdown">
+          <a href="#"><i class="fas fa-map-marker-alt"></i> Location</a>
+          <ul class="dropdown-menu">
+            <li><a href="cl.html">Central London</a></li>
+            <li><a href="nl.html">North London</a></li>
+            <li><a href="el.html">East London</a></li>
+            <li><a href="sl.html">South London</a></li>
+            <li><a href="wl.html">West London</a></li>
+          </ul>
+        </li>
+        <li><a href="calendar_reminders.html"><i class="fas fa-calendar-alt"></i> Calendar</a></li>
+        <li><a href="healthy eats.html"><i class="fas fa-utensils"></i> Healthy Eats</a></li>
+        <li><a href="feedback.html"><i class="fas fa-microphone"></i> Your voice</a></li>
+        <li><a href="login_signup.html"><i class="fas fa-user"></i> Login/Sign up</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="box">
+    <div class="button_box">
+        <div class="slider_button"></div>
+        <button type="button" class="signup_button">Sign Up</button>
+        <button type="button" class="login_button">Login</button>
+    </div>
+    <div class="form_box">
+        <div class="form_slider">
+            <form action="#" class="signup_form">
+                <div class="input_field_box">
+                    <div class="input_box">
+                        <input type="text" required>
+                        <label><i class="fas fa-user"></i> Username</label>
+                    </div>
+                    <div class="input_box">
+                        <input type="text" required>
+                        <label><i class="fas fa-envelope"></i> Email Address</label>
+                    </div>
+                    <div class="input_box">
+                        <input type="text" required>
+                        <label><i class="fas fa-lock"></i> Create Password</label>
+                    </div>
+                    <div class="input_box">
+                        <input type="text" required>
+                        <label><i class="fas fa-lock"></i> Confirm Password</label>
+                    </div>
+                </div>
+                <button type="submit">Create Account</button>
+                <div class="contact_link">Need our help ? <a href="help.html">click here</a></div>
+            </form>
+            <form action="#" class="login_form">
+                <div class="input_box">
+                    <input type="text" required>
+                    <label><i class="fas fa-envelope"></i> Email Address / <i class="fas fa-user"></i> Username</label>
+                </div>
+                <div class="input_box">
+                    <input type="text" required>
+                    <label><i class="fas fa-lock"></i> Password</label>
+                </div>
+                <p class="password_link"><a href="#">Forgot Password ?</a></p>
+                <button type="submit">Login</button>
+                <div class="contact_link">Need our help ? <a href="help.html">click here</a></div>
+            </form>
+        </div>
+    </div>
+</div>
+
+  <div class="ldncw2"></div>
+  <script>
+    const body = document.querySelector("body");
+    const cancelBtn = document.querySelector(".cancel-btn");
+    const navbar = document.querySelector(".navbar");
+    const menu = document.querySelector(".menu-list");
+    const menuBtn = document.querySelector(".menu-btn");
+    menuBtn.onclick = ()=>{
+      menu.classList.add("active");
+      menuBtn.classList.add("hide");
+      cancelBtn.classList.add("show");
+      body.classList.add("disabledScroll");
+    }
+    cancelBtn.onclick = ()=>{
+      menu.classList.remove("active");
+      menuBtn.classList.remove("hide");
+      cancelBtn.classList.remove("show");
+      body.classList.remove("disabledScroll");
+    }
+    window.onscroll = ()=>{
+      this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+    }
+  </script>
+
+  <script>
+
+    let slider_button = document.querySelector(".slider_button");
+    let signup_button = document.querySelector(".signup_button");
+    let login_button = document.querySelector(".login_button");
+    let form_slider = document.querySelector(".form_slider");
+
+    signup_button.style.color = "#fff";
+
+    login_button.onclick = function () {
+        slider_button.style.left = "50%";
+        login_button.style.color = "#fff";
+        signup_button.style.color = "#000";
+        form_slider.style.left = "-100%";
+    }
+    signup_button.onclick = function () {
+        slider_button.style.left = "0%";
+        signup_button.style.color = "#fff";
+        login_button.style.color = "#000";
+        form_slider.style.left = "0%";
+
+    }
+
+</script>
+
+</body>
+</html>

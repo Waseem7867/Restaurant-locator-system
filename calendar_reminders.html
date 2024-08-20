@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dish Discover London</title>
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="content">
+            <div class="logo"><a href="#">Dish Discover London</a></div>
+            <ul class="menu-list">
+                <div class="icon cancel-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li class="dropdown">
+                    <a href="#"><i class="fas fa-map-marker-alt"></i> Location</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="cl.html">Central London</a></li>
+                        <li><a href="nl.html">North London</a></li>
+                        <li><a href="el.html">East London</a></li>
+                        <li><a href="sl.html">South London</a></li>
+                        <li><a href="wl.html">West London</a></li>
+                    </ul>
+                </li>
+                <li><a href="calendar_reminders.html"><i class="fas fa-calendar-alt"></i> Calendar</a></li>
+                <li><a href="healthy eats.html"><i class="fas fa-utensils"></i> Healthy Eats</a></li>
+                <li><a href="feedback.html"><i class="fas fa-microphone"></i> Your voice</a></li>
+                <li><a href="login_signup.html"><i class="fas fa-user"></i> Login/Sign up</a></li>
+            </ul>
+            <div class="icon menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div class="ldncalendar"></div>
+    <div class="about">
+        <div class="content">
+            <div class="title">Calendar / Reminders</div>
+            <p> Effortlessly manage your restaurant's events/reservations with our intuitive calendar and reminder tool, designed to keep you organised </p>
+            <p> </p>
+            <p> </p>
+            
+            <div class="calendar-container">
+                <div class="event-form">
+                    <h2>Add Event</h2>
+                    <form id="addEventForm">
+                        <label for="eventName">Event Name & Time:</label><br>
+                        <input type="text" id="eventName" name="eventName"><br>
+                        <label for="eventDate">Event Date:</label><br>
+                        <input type="date" id="eventDate" name="eventDate"><br>
+                        <input type="submit" value="Add Event">
+                    </form>
+                </div>
+                <div class="calendar">
+                    <h1>Keep track of your events and reservations</h1>
+                    <div class="calendar">
+                        <header>
+                            <h3></h3>
+                            <nav>
+                                <button id="prev"></button>
+                                <button id="next"></button>
+                            </nav>
+                        </header>
+                        <section>
+                            <ul class="days">
+                                <li>Sun</li>
+                                <li>Mon</li>
+                                <li>Tue</li>
+                                <li>Wed</li>
+                                <li>Thu</li>
+                                <li>Fri</li>
+                                <li>Sat</li>
+                            </ul>
+                            <ul class="dates"></ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <script>
+                const header = document.querySelector(".calendar h3");
+                const dates = document.querySelector(".dates");
+                const navs = document.querySelectorAll("#prev, #next");
+                const months = [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                ];
+                let date = new Date();
+                let month = date.getMonth();
+                let year = date.getFullYear();
+                function renderCalendar() {
+                    const start = new Date(year, month, 1).getDay();
+                    const endDate = new Date(year, month + 1, 0).getDate();
+                    const end = new Date(year, month, endDate).getDay();
+                    const endDatePrev = new Date(year, month, 0).getDate();
+                    let datesHtml = "";
+                    for (let i = start; i > 0; i--) {
+                        datesHtml += `<li class="inactive">${endDatePrev - i + 1}</li>`;
+                    }
+                    for (let i = 1; i <= endDate; i++) {
+                        let className =
+                            i === date.getDate() &&
+                            month === new Date().getMonth() &&
+                            year === new Date().getFullYear()
+                            ? ' class="today"'
+                            : "";
+                        datesHtml += `<li${className}><a href="#">${i}</a></li>`;
+                    }
+                    for (let i = end; i < 6; i++) {
+                        datesHtml += `<li class="inactive">${i - end + 1}</li>`;
+                    }
+                    dates.innerHTML = datesHtml;
+                    header.textContent = `${months[month]} ${year}`;
+                    const dateLinks = document.querySelectorAll(".dates li a");
+                    dateLinks.forEach(link => {
+                        link.addEventListener("click", (e) => {
+                            e.preventDefault(); 
+                            console.log("Date clicked:", link.textContent);
+                        });
+                    });
+                }
+                
+                navs.forEach((nav) => {
+                    nav.addEventListener("click", (e) => {
+                        const btnId = e.target.id;
+                        if (btnId === "prev" && month === 0) {
+                            year--;
+                            month = 11;
+                        } else if (btnId === "next" && month === 11) {
+                            year++;
+                            month = 0;
+                        } else {
+                            month = btnId === "next" ? month + 1 : month - 1;
+                        }
+                        date = new Date(year, month, new Date().getDate());
+                        year = date.getFullYear();
+                        month = date.getMonth();
+                        renderCalendar();
+                    });
+                });
+                renderCalendar();
+                document.getElementById('addEventForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    var eventName = document.getElementById('eventName').value;
+                    var eventDate = new Date(document.getElementById('eventDate').value);
+                });  
+              const body = document.querySelector("body");
+              const cancelBtn = document.querySelector(".cancel-btn");
+              const navbar = document.querySelector(".navbar");
+              const menu = document.querySelector(".menu-list");
+              const menuBtn = document.querySelector(".menu-btn");
+              menuBtn.onclick = ()=>{
+                menu.classList.add("active");
+                menuBtn.classList.add("hide");
+                cancelBtn.classList.add("show");
+                body.classList.add("disabledScroll");
+              }
+              cancelBtn.onclick = ()=>{
+                menu.classList.remove("active");
+                menuBtn.classList.remove("hide");
+                cancelBtn.classList.remove("show");
+                body.classList.remove("disabledScroll");
+              }
+              window.onscroll = ()=>{
+                this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+              }
+              
+            </script>
+        </div>
+    </div>

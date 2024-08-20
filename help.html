@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dish Discover London</title>
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="content">
+      <div class="logo"><a href="#">Dish Discover London</a></div>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li class="dropdown">
+          <a href="#"><i class="fas fa-map-marker-alt"></i> Location</a>
+          <ul class="dropdown-menu">
+            <li><a href="cl.html">Central London</a></li>
+            <li><a href="nl.html">North London</a></li>
+            <li><a href="el.html">East London</a></li>
+            <li><a href="sl.html">South London</a></li>
+            <li><a href="wl.html">West London</a></li>
+          </ul>
+        </li>
+        <li><a href="calendar_reminders.html"><i class="fas fa-calendar-alt"></i> Calendar</a></li>
+        <li><a href="healthy eats.html"><i class="fas fa-utensils"></i> Healthy Eats</a></li>
+        <li><a href="feedback.html"><i class="fas fa-microphone"></i> Your voice</a></li>
+        <li><a href="login_signup.html"><i class="fas fa-user"></i> Login/Sign up</a></li>
+      </ul>
+      <div class="icon menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <div class="ldnhelp"></div>
+  <div class="about">
+  <div class="content">
+      <div class="title">Help</div>
+      <p> Need help navigating through our page? </p>
+      <p> Navigate to the registration option within the navigation bar to register with DDL or log in if you are an existing user. Uncertain about locating a suitable halal restaurant? No issue. Navigate to the Map/Location feature and select your preferred area. Our curated selection of establishments in London awaits your exploration. Once you've chosen a location, simply scroll down to discover venues that cater to your preferences. If you find a particular venue appealing, mark it as a favorite with a single click.</p>
+      <p> Interested in exploring our new feature? Direct your attention to the navigation bar and select Healthy Eats. Here, you'll have the opportunity to provide a few details about your goal and biometric information, enabling us to recommend suitable dining options. Upon generating your results, select the range at the bottom that aligns with your score to access a curated list of restaurants tailored to your goal.</p>
+      <p> To manage your events and reservations, access the Calendar/Reminders feature in the navigation bar and input your event details. Curious about 'Your Voice'? This feature allows you to share feedback, suggestions for improvement, concerns, or ratings with us. We value your input, regardless of its nature or scope.</p>
+      <p> Thank you for chosing Dish Discover London!</p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <div class="container2">
+        <div class="images">
+          <img class="food-img" src="images/ldn16.jpg" alt="food" width="30%"> 
+        </div>
+      </div>
+  </div>
+
+  <script>
+    const body = document.querySelector("body");
+    const cancelBtn = document.querySelector(".cancel-btn");
+    const navbar = document.querySelector(".navbar");
+    const menu = document.querySelector(".menu-list");
+    const menuBtn = document.querySelector(".menu-btn");
+    menuBtn.onclick = ()=>{
+      menu.classList.add("active");
+      menuBtn.classList.add("hide");
+      cancelBtn.classList.add("show");
+      body.classList.add("disabledScroll");
+    }
+    cancelBtn.onclick = ()=>{
+      menu.classList.remove("active");
+      menuBtn.classList.remove("hide");
+      cancelBtn.classList.remove("show");
+      body.classList.remove("disabledScroll");
+    }
+    window.onscroll = ()=>{
+      this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+    }
+  </script>
+
+</body>
+</html>
